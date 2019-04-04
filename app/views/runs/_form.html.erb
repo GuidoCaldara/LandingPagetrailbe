@@ -1,0 +1,24 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <h2><%= title %></h2>
+        <%= simple_form_for @run do |f| %>
+          <%= f.input :name, label: "Dai un nome all'allenamento" %>
+          <%= f.input :date, label:"Data e ora di partenza", as: :string, type: :text%>
+          <%= f.input :starting_point, label:"Punto di partenza (Inserisci l'indirizzo esatto)" %>
+          <%= f.input :starting_point_info, label:"Se necessario inserisci altre informazioni utili per trovare il punto di partenza" %>
+          <%= f.input :distance, label: "Distanza prevista per l'uscita" %>
+          <%= f.input :elevation, label: "Dislivello positivo" %>
+          <%= f.input :duration, label: "Durata prevista (ore e minuti)" %>
+          <%= f.input :description, label: "Descrizione dell'allenamento" %>
+          <%= f.input :photo,  label:" Qui puoi inserire una foto"%>
+          <img id="output" src="#" alt="your image", style="display: none; width: 150px" />
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.button :submit, "Conferma", class:"btn btn-secondary float-right" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

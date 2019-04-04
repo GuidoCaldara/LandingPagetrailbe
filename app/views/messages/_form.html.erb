@@ -1,0 +1,4 @@
+<%= simple_form_for [run, message ], html: { class: "px-1"} do |f| %>
+  <%= f.input :text, label: "Inserisci un nuovo messaggio" %>
+  <%= f.button :submit, "Conferma", class:"btn btn-secondary float-right" %>
+<% end %>

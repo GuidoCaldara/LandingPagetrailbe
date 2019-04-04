@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 px-0">
+      <div class="card">
+        <% if !@user.avatar.blank? %>
+            <div class="small-avatar mx-auto" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+           url('<%= cl_image_path @user.avatar, height: 300, width: 400, crop: :fill %>')">
+            </div>
+        <% end %>
+        <h2 class="mt-4 text-center"><%= @user.username.capitalize %> </h2>
+        <p class="mb-0 text-center">Località: <%= @user.location.split(",").first %> </p>
+        <hr>
+        <p class="text-center"><%= @user.description %> </p>
+        <% if @user == current_user %>
+          <%= link_to edit_user_profile_path do %>
+            <p class="small m-1"><i class="far fa-edit mr-2"></i>Modifica il profilo</p>
+          <% end %>
+          <%= link_to edit_user_registration_path do %>
+            <p class="small m-1"><i class="fas fa-key mr-2"></i>Cambia Password</p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+      <div class="col-md-8 px-0">
+        <%= render "runs/runs_card", user: @user, runs: @next_organized_runs, no_link: false %>
+        <%= render "runs/partecipant_card", user: @user, runs: @next_runs, no_link: false %>
+      </div>
+  </div>
+</div>

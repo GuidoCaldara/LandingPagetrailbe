@@ -1,0 +1,41 @@
+.shared-link{
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  a{
+    font-size: 14px;
+    color: #888787
+  }
+}
+
+.form-check{
+  label{
+    margin-top: 0px
+  }
+}
+
+
+label{
+  margin-top: 20px
+};
+
+.form-control{
+  border-radius: 0;
+  background-color: #f1f1f185;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.form-control:focus{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #495057;
+  box-shadow:none;
+  background-color: #f1f1f185;
+}
+
+textarea{
+  max-height: 250px;
+}

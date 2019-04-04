@@ -1,0 +1,45 @@
+<% if runs.any? %>
+<div class="card">
+ <% if !no_link %>
+  <div class="d-flex align-items-center">
+      <% if user == current_user %>
+        <h3 class="mb-1 mr-3">Gli allenamenti che hai condiviso</h3>
+      <% else  %>
+        <h3 class="mb-1 mr-3">Gli allenamenti condivisi da <%= user.username.capitalize %></h3>
+      <% end %>
+
+    <% if user == current_user %>
+      <%= link_to new_run_path do %>
+        <i style="" class="fas fa-plus-circle add-run-btn" data-toggle="tooltip" data-placement="top" title="Aggiungi un nuovo allenamento"></i>
+      <% end %>
+    <% end %>
+
+    <%= link_to user_runs_path(user) do %>
+      <i class="fas fa-search ml-2 add-run-btn" data-toggle="tooltip" data-placement="top" title="Vedi tutti gli allenamenti organizzati da <%= user.username.capitalize %>"></i>
+    <% end %>
+  </div>
+  <p class="light"><%= user.username.capitalize %> ha organizzato questi allenamenti</p>
+<% else %>
+<div class="text-center">
+  <% if user == current_user %>
+    <h3 class="mb-1 mr-3">Gli allenamenti che hai condiviso</h3>
+  <% else  %>
+    <h3 class="mb-1 mr-3">Gli allenamenti condivisi da <%= user.username.capitalize %></h3>
+  <% end %>
+
+</div>
+<p class="light"><%= user.username.capitalize %> ha organizzato questi allenamenti</p>
+
+<% end %>
+
+
+  <div class="d-flex flex-column">
+    <% runs.each do |run| %>
+      <%= link_to run, class:"my-1" do %>
+        <%= render "runs/horizontal_card", run: run %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<% end %>

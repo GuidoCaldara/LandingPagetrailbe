@@ -1,0 +1,36 @@
+<% if runs.any? %>
+
+<div class="card">
+ <% if !no_link %>
+  <div class="d-flex align-items-center">
+      <% if user == current_user %>
+        <h3 class=" mb-1 mr-3">Gli allenamenti a cui parteciperai</h3>
+      <% else  %>
+        <h3 class=" mb-1 mr-3">I prossimi allenamenti di <%= user.username.capitalize %></h3>
+      <% end %>
+  </div>
+  <p class="light"><%= user.username.capitalize %> partecipera a questi allenamenti</p>
+<% else %>
+<div class="text-center">
+  <% if user == current_user %>
+    <h3 class=" mb-1 mr-3">Gli allenamenti che hai condiviso</h3>
+  <% else  %>
+    <h3 class=" mb-1 mr-3">Gli allenamenti condivisi da <%= user.username %></h3>
+  <% end %>
+
+</div>
+<p class="light"><%= user.username.capitalize %> partecipera a questi allenamenti</p>
+
+<% end %>
+
+
+  <div class="d-flex flex-column">
+    <% runs.each do |run| %>
+      <%= link_to run, class:"my-1" do %>
+        <%= render "runs/horizontal_card", run: run %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<% end %>
