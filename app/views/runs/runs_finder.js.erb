@@ -1,0 +1,13 @@
+var template = "<%= j render @runs %>"
+
+var el = document.querySelector('.index-cards-container');
+el.innerHTML = template;
+var mapElement = document.getElementById('index-map');
+document.querySelectorAll(".mapboxgl-marker").forEach(m => m.remove())
+datas = "<%= @markers.to_json %>"
+updateMap(datas)
+// mapElement.dataset.markers = JSON.parse("<%= @markers.to_json %>");
+<% if @markers.length == 0  %>
+  document.querySelector(".index-cards-container").innerHTML = "<div class='container'><h3>Ops, non ci sono allenamenti con i criteri che hai scelto</h3></div>"
+<% end  %>
+// initIndexMap(mapElement)

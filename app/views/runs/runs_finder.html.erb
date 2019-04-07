@@ -1,0 +1,45 @@
+
+<div class="container ml-2 py-3"><h2>Trova la tua prossima corsa</h2></div>
+  <div>
+    <%= form_for("/runs_finder", method: "get", html:{id: "runs_filter", class:"px-2"}, remote: :true) do |f| %>
+      <div class="d-flex flex-wrap w-100">
+        <div class="px-3 run_location_filter_container">
+          <input value="" id="run_location_filter" type="text" placeholder="Inserisci una località" name="location" class="my-2 form-control">
+        </div>
+        <div class="px-3 run_date_range_container">
+          <input id="run-date-range" name="dates_range" class="my-2  form-control flatpickr flatpickr-input" type="text" placeholder="Inserisci il periodo" data-id="range" readonly="readonly">
+        </div>
+      </div>
+      <div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class=" d-flex flex-wrap">
+    <div class="d-flex flex-column index-cards-container">
+        <% @runs.each do |run| %>
+        <%= link_to run do %>
+          <%= render "horizontal_card", run: run %>
+        <%end %>
+        <% end  %>
+    </div>
+    <div class="index-map-container pt-2">
+      <div
+        id="index-map"
+        style="width: 100%;
+        height: 100vh"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= Rails.application.credentials[:MAPBOX_API] %>"
+      ></div>
+
+    </div>
+  </div>
+
+
+  <button class="btn-secondary btn map-modal-btn"> MAP button</button>
+
+  <script type="text/javascript">
+    document.querySelector("#run_location_filter").addEventListener("change", function(){
+      return console.log("hello")
+    })
+  </script>

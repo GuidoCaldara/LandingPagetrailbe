@@ -4,7 +4,7 @@ class CreateRuns < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :starting_point
       t.string :starting_point_info
-      t.integer :distance
+      t.integer :run_distance
       t.integer :elevation
       t.time :duration
       t.datetime :date

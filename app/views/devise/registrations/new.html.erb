@@ -21,6 +21,8 @@
                         input_html: { autocomplete: "new-password" } %>
           </div>
 
+          <%= link_to "FB Login", user_facebook_omniauth_authorize_path %>
+
           <div class="form-actions">
             <%= f.button :submit, "Sign up", class:"btn btn-secondary float-right" %>
           </div>

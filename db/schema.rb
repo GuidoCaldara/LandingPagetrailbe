@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_130704) do
+ActiveRecord::Schema.define(version: 2019_04_05_144700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_04_03_130704) do
     t.string "name"
     t.string "starting_point"
     t.string "starting_point_info"
-    t.integer "distance"
+    t.integer "run_distance"
     t.integer "elevation"
     t.time "duration"
     t.datetime "date"
@@ -79,6 +79,13 @@ ActiveRecord::Schema.define(version: 2019_04_03_130704) do
     t.float "latitude"
     t.float "longitude"
     t.string "slug"
+    t.string "provider"
+    t.string "uid"
+    t.string "facebook_picture_url"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "token"
+    t.datetime "token_expiry"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true

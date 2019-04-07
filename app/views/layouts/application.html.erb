@@ -17,18 +17,14 @@
     <% if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>
+    <% if alert %>
     <p class="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
 
     <%= javascript_pack_tag 'application' %>
 
-    <div class="footer">
-      <button onclick="history.back()">
-        Go Back</button>
-      <button onclick="history.forward()">
-        Go Forward</button>
-    </div>
-
+<%= render "shared/footer" %>
     <script></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 class PartecipantsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_profile
 
   def create
     @user = current_user

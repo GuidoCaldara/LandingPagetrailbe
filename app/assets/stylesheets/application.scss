@@ -5,7 +5,85 @@ $black-text: #222222;
 @import "bootstrap/scss/bootstrap";
 @import "components/index";
 
+.map-modal-btn{
+  display: block;
+    position: absolute;
+    right: 0px;
+    top: calc(100vh - 128px);
+}
 
+
+
+@media only screen and (max-width: 612px) {
+  .map-modal-btn {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 613px) {
+  .map-modal-btn {
+    display: none;
+  }
+}
+
+
+
+
+
+
+.bottm-container{
+  padding-bottom: 100px;
+}
+.footer{
+  a{
+    i{
+    font-size: 50px;
+    color: #68CE5D;
+    }
+  }
+}
+
+.fa-running{
+  font-size: 55px;
+  color: #68CE5D;
+  margin: 18px !important
+}
+
+.card-organizer-name{
+  flex: 0 0 150px;
+  flex-grow: 1;
+  width: 50%
+}
+
+
+.run_location_filter_container{
+  flex-grow: 1;
+  width: 50%
+}
+
+.run_date_range_container{
+  flex: 0 1 500px;
+  flex-grow: 1;
+  width: 50%
+}
+
+
+
+.index-map-container{
+    flex: 0 0 100%;
+    height: 100vh;
+    position: sticky !important;
+    top: 0 !important;
+
+}
+
+.index-cards-container{
+  flex-grow: 1
+}
+
+.index-map-container:first-child{
+  margin-top: 0px
+}
 .mapboxgl-canvas {
     position: absolute;
     top: 0;
@@ -90,15 +168,28 @@ background-size: cover;
   cursor: pointer;
 }
 
+.footer-main-btn-container{
+  height: 130px;
+  width: 74px;
+  background: #3a3a3a;
+  border-radius: 60px;
+  display: flex;
+  justify-content: center;
+}
+
 .footer{
   width: 100%;
-  height: 50px;
-  background-color: red;
-  position: fixed;
-  bottom: 0px;
-  z-index: 10;
-  margin-top: 30px
-}
+      height: 69px;
+      background-color: #3a3a3a;
+      position: fixed;
+      bottom: 0px;
+      justify-content: space-between;
+      z-index: 10;
+      margin-top: 30px;
+      padding: 6px 25px 6px 25px;
+      align-items: center;
+
+    }
 
 .container{
   //min-height: calc(100vh + 50px)
@@ -111,10 +202,16 @@ background-size: cover;
   font-size: 14px;
 }
 
+.alert{
+  text-align: center;
+  background-color: #f99a9a;
+
+
+}
 
 @media only screen and (max-width: 612px) {
   .footer {
-    display: block;
+    display: flex;
   }
 }
 
