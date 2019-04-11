@@ -1,0 +1,48 @@
+
+.card {
+  padding: 35px;
+  border-radius: 2px;
+  background: #fff;
+  margin: 1rem;
+  border-radius: 0px;
+  box-shadow: 0px 2px 4px -1px #d0cfcfb5
+  //box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.card-organizer-name{
+  flex: 0 0 150px;
+  flex-grow: 1;
+  font-size: 13px;
+  width: 50%
+}
+
+.small-card{
+ padding: 0px !important;
+ margin: 8px
+}
+
+.small-card-pic{
+  min-height: 16px;
+  background-position: center;
+  background-size: cover;
+}
+
+.message_card{
+  padding: 10px;
+  margin: 3px 0px
+}
+
+.small-padding-card{
+  padding: 20px 9px !important
+}
+
+
+
+
+@media only screen and (max-width: 612px) {
+  .card{
+    padding: 30px 15px;
+
+
+  }
+}

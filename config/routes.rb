@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root "runs#runs_finder"
+  root "pages#home"
   devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks'
 }
   get "users/edit_profile", to: "users#edit_profile", as: "edit_user_profile"
-  get "/runs_finder", to: "runs#runs_finder", as: "runs_finder_path"
+  get "/runs_finder", to: "runs#runs_finder", as: "runs_finder"
   patch "users/update_profile", to: "users#update_profile", as: "update_user_profile"
   resources :runs, only: [:index]
 

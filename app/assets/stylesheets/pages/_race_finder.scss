@@ -1,0 +1,19 @@
+.bottm-container{
+  padding-bottom: 100px;
+}
+
+.index-map-container{
+    flex: 0 0 420px;
+    height: 100vh;
+    position: sticky !important;
+    top: 0 !important;
+
+}
+
+.index-cards-container{
+  flex-grow: 1
+}
+
+.index-map-container:first-child{
+  margin-top: 0px
+}

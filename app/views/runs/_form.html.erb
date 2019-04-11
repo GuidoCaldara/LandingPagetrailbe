@@ -7,11 +7,11 @@
         <%= simple_form_for @run do |f| %>
           <%= f.input :name, label: "Dai un nome all'allenamento" %>
           <%= f.input :date, label:"Data e ora di partenza", as: :string, type: :text%>
-          <%= f.input :starting_point, label:"Punto di partenza (Inserisci l'indirizzo esatto)" %>
+          <%= f.input :starting_point, label:"Punto di partenza (Inserisci l'indirizzo esatto)", placeholder: "es: Via Roma 10, Milano" %>
           <%= f.input :starting_point_info, label:"Se necessario inserisci altre informazioni utili per trovare il punto di partenza" %>
-          <%= f.input :run_distance, label: "Distanza prevista per l'uscita" %>
-          <%= f.input :elevation, label: "Dislivello positivo" %>
-          <%= f.input :duration, label: "Durata prevista (ore e minuti)" %>
+          <%= f.input :run_distance, label: "Distanza in Km prevista per l'uscita", input_html: { max: 100 } %>
+          <%= f.input :elevation, label: "Dislivello positivo in metri (d+)" , input_html: {step: 100, min:0, max: 5000 } %>
+          <%= f.input :duration, label: "Durata prevista (ore e minuti)", as: :time, :minute_step => 15, default: Time.parse('0:00') %>
           <%= f.input :description, label: "Descrizione dell'allenamento" %>
           <%= f.input :photo,  label:" Qui puoi inserire una foto"%>
           <img id="output" src="#" alt="your image", style="display: none; width: 150px" />

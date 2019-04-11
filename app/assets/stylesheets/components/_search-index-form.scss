@@ -1,0 +1,21 @@
+.run_location_filter_container {
+  flex-grow: 1;
+  width: 50%;
+}
+
+.run_date_range_container {
+  flex: 0 1 400px;
+  flex-grow: 1;
+  width: 50%;
+  position: relative;
+}
+
+.remove-date-icon {
+  height: 100%;
+  font-size: 23px;
+  position: absolute;
+  right: 0;
+  right: 25px;
+top: 8px;
+
+}

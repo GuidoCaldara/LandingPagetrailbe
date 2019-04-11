@@ -12,6 +12,9 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10',
       maxZoom: 14
     });
+    map.scrollZoom.disable();
+    map.addControl(new mapboxgl.NavigationControl());
+
     const bounds = new mapboxgl.LngLatBounds();
     bounds.extend([lng,lat])
     map.fitBounds(bounds)

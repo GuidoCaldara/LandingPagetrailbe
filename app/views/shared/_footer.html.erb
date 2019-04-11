@@ -1,7 +1,10 @@
 <div class="footer">
   <a onclick="history.back()"><i class="fas fa-caret-left"></i></a>
-  <div class="footer-main-btn-container">
-    <%= link_to root_path do %> <i class="fas fa-running"></i> <% end  %>
+  <div class="">
+    <%= link_to runs_finder_path do %> <i class="central-i fas fa-search"></i> <% end  %>
+  </div>
+  <div class="">
+    <%= link_to user_path(current_user) do %> <i class="central-i fas fa-user"></i> <% end  %>
   </div>
   <a onclick="history.forward()"><i class="fas fa-caret-right"></i></a>
 </div>
