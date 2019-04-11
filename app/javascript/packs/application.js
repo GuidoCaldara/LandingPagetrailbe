@@ -99,6 +99,15 @@ $('#indexMapModal').on('shown.bs.modal', function() {
   });
 
 
+  var mapElement = document.getElementById('index-map');
+  if (mapElement){
+    if (window.innerWidth > 1021){
+      initIndexMap(mapElement, "index-map");
+    } else {
+      document.querySelector(".index-map-container").remove()
+      initIndexMap(document.querySelector("#modal-index-map"), "modal-index-map" )
+    }
+  }
 
 
 
