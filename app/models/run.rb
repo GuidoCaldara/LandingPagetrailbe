@@ -45,7 +45,7 @@ class Run < ApplicationRecord
   end
 
   def check_duration
-    if duratlion.present? && (self.duration.hour == 0 && self.duration.min == 0 )
+    if duration.present? && (self.duration.hour == 0 && self.duration.min == 0 )
       errors.add(:duration, "Inserisci una durata per l'allenamento")
     end
 

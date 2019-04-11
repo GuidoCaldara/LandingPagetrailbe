@@ -5,15 +5,15 @@
       <div class="card">
         <h2><%= title %></h2>
         <%= simple_form_for @run do |f| %>
-          <%= f.input :name, label: "Dai un nome all'allenamento" %>
-          <%= f.input :date, label:"Data e ora di partenza", as: :string, type: :text%>
-          <%= f.input :starting_point, label:"Punto di partenza (Inserisci l'indirizzo esatto)", placeholder: "es: Via Roma 10, Milano" %>
-          <%= f.input :starting_point_info, label:"Se necessario inserisci altre informazioni utili per trovare il punto di partenza" %>
-          <%= f.input :run_distance, label: "Distanza in Km prevista per l'uscita", input_html: { max: 100 } %>
-          <%= f.input :elevation, label: "Dislivello positivo in metri (d+)" , input_html: {step: 100, min:0, max: 5000 } %>
-          <%= f.input :duration, label: "Durata prevista (ore e minuti)", as: :time, :minute_step => 15, default: Time.parse('0:00') %>
-          <%= f.input :description, label: "Descrizione dell'allenamento" %>
-          <%= f.input :photo,  label:" Qui puoi inserire una foto"%>
+          <%= f.input :name,  input_html: { autocomplete: 'off' }, label: "Dai un nome all'allenamento" %>
+          <%= f.input :date,  input_html: { autocomplete: 'off' }, label:"Data e ora di partenza", as: :string, type: :text%>
+          <%= f.input :starting_point,  input_html: { autocomplete: 'off' }, label:"Punto di partenza (Inserisci l'indirizzo esatto)", placeholder: "es: Via Roma 10, Milano" %>
+          <%= f.input :starting_point_info,  input_html: { autocomplete: 'off' }, label:"Se necessario inserisci altre informazioni utili per trovare il punto di partenza" %>
+          <%= f.input :run_distance,  input_html: { autocomplete: 'off' }, label: "Distanza in Km prevista per l'uscita", input_html: { max: 100 } %>
+          <%= f.input :elevation,  input_html: { autocomplete: 'off' }, label: "Dislivello positivo in metri (d+)" , input_html: {step: 100, min:0, max: 5000 } %>
+          <%= f.input :duration,  input_html: { autocomplete: 'off' }, label: "Durata prevista (ore e minuti)", as: :time, :minute_step => 15, default: Time.parse('0:00') %>
+          <%= f.input :description,  input_html: { autocomplete: 'off' }, label: "Descrizione dell'allenamento" %>
+          <%= f.input :photo,   input_html: { autocomplete: 'off' }, label:" Qui puoi inserire una foto"%>
           <img id="output" src="#" alt="your image", style="display: none; width: 150px" />
           <%= f.input :photo_cache, as: :hidden %>
           <%= f.button :submit, "Conferma", class:"btn btn-secondary float-right" %>
