@@ -1,5 +1,17 @@
+
+<% if user == current_user %>
+<div class="container mt-3">
+  <%= link_to new_run_path, class: "d-flex" do %>
+    <i style="" class="fas fa-plus-circle add-run-btn" data-toggle="tooltip" data-placement="top" title="Aggiungi un nuovo allenamento"></i>
+    <p class="ml-2">Aggiungi un nuovo allenamento</p>
+  <% end %>
+
+</div>
+<% end %>
+
+
 <% if runs.any? %>
-<div class="card">
+<div class="card small-padding-card">
  <% if !no_link %>
   <div class="d-flex align-items-center">
       <% if user == current_user %>
@@ -7,12 +19,6 @@
       <% else  %>
         <h3 class="mb-1 mr-3">Gli allenamenti condivisi da <%= user.username.capitalize %></h3>
       <% end %>
-
-    <% if user == current_user %>
-      <%= link_to new_run_path do %>
-        <i style="" class="fas fa-plus-circle add-run-btn" data-toggle="tooltip" data-placement="top" title="Aggiungi un nuovo allenamento"></i>
-      <% end %>
-    <% end %>
 
     <%= link_to user_runs_path(user) do %>
       <i class="fas fa-search ml-2 add-run-btn" data-toggle="tooltip" data-placement="top" title="Vedi tutti gli allenamenti organizzati da <%= user.username.capitalize %>"></i>

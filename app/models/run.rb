@@ -6,6 +6,22 @@ class Run < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_starting_point?
   after_create :set_organizer_as_partecipant
   has_many :messages
+
+  validates :name, presence: true,  length: { minimum: 4, maximum: 100 }
+  validates :name, presence: true,  length: { minimum: 4, maximum: 100 }
+  validates :date, presence: true
+  validate :run_in_the_future
+  validates :starting_point, presence: true
+  validates :starting_point_info, length: { minimum: 4, maximum: 100 }
+  validates :run_distance,  numericality: { only_integer: true, min: 1, max: 100}
+  validates :elevation,  numericality: { only_integer: true, min: 0, max: 10000}
+  validates :duration, presence: true
+  validates :description,  length: { minimum: 10, maximum: 600 }
+  validate :check_duration
+
+  before_save :check_the_coordinates
+
+
   scope :organized_runs, -> (user) { user.organized_runs.where("date >= ?", Date.today).order(date: :asc) }
   scope :next_runs, -> (user) { user.runs.where("date >= ?", Date.today).order(date: :asc) }
   scope :runs, -> (user) { user.runs.order(date: :desc) }
@@ -16,4 +32,22 @@ class Run < ApplicationRecord
     Partecipant.create(user: self.user, run:self)
   end
 
+  def run_in_the_future
+    if date.present? && date < Date.today
+      errors.add(:date, "Inserisci una data futura")
+    end
+  end
+
+  def check_the_coordinates
+    if starting_point.present? && (self.latitude.nil? || self.longitude.nil? )
+      errors.add(:starting_point, "Inserisci un idirizzo esistente")
+    end
+  end
+
+  def check_duration
+    if duratlion.present? && (self.duration.hour == 0 && self.duration.min == 0 )
+      errors.add(:duration, "Inserisci una durata per l'allenamento")
+    end
+
+  end
 end

@@ -3,16 +3,27 @@ class RunsController < ApplicationController
   before_action :check_profile
 
   def runs_finder
+    @params = params
     @runs = Run.where("date > ?", Date.today() ).where.not(latitude: nil, longitude: nil)
     @runs = @runs.filter_by_first_date(params[:dates_range]) if params[:dates_range].present?
     @runs = @runs.filter_by_last_date(params[:dates_range]) if params[:dates_range].present? && params["dates_range"].split[2]
     @runs = @runs.near(params[:location], 20, units: :km) if params[:location].present?
+    @runs = @runs.order(date: :asc)
     @markers = @runs.map do |run|
       { lat: run.latitude,
         lng: run.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { run: run }),
+        name: run.name,
+        distance: run.run_distance,
+        date: run.date.strftime("%m-%e-%y %H:%M")
         }
     end
+
+    respond_to do |format|
+        format.js { }
+        format.html { }
+    end
+
+
   end
 
 
@@ -38,11 +49,11 @@ class RunsController < ApplicationController
   end
 
   def create
+    byebug
     @run = Run.new(run_params)
     @run.user = current_user
     authorize @run
     if @run.save
-      Partecipant.create(user: current_user, run: @run)
       redirect_to @run.user
       flash[:notice] = "L'allenamento è stato inserito correttamente"
     else

@@ -1,22 +1,37 @@
 
-<div class="container ml-2 py-3"><h2>Trova la tua prossima corsa</h2></div>
-  <div>
+<div class="container-fluid py-3 pv"><h3>Trova la tua prossima corsa</h3>
     <%= form_for("/runs_finder", method: "get", html:{id: "runs_filter", class:"px-2"}, remote: :true) do |f| %>
       <div class="d-flex flex-wrap w-100">
         <div class="px-3 run_location_filter_container">
           <input value="" id="run_location_filter" type="text" placeholder="Inserisci una località" name="location" class="my-2 form-control">
         </div>
-        <div class="px-3 run_date_range_container">
+        <div class="px-3 run_date_range_container d-flex align-items-center">
           <input id="run-date-range" name="dates_range" class="my-2  form-control flatpickr flatpickr-input" type="text" placeholder="Inserisci il periodo" data-id="range" readonly="readonly">
+          <div class="remove-date-icon" style="display: none">
+            x
+          </div>
+        </div>
+        <div class="d-flex align-items-center px-3">
+          <%= f.button "cerca", class:"btn btn-secondary" %>
         </div>
       </div>
-      <div>
-      </div>
     <% end %>
-  </div>
+</div>
 
-  <div class=" d-flex flex-wrap">
-    <div class="d-flex flex-column index-cards-container">
+<!-- <script type="text/javascript">
+let form = document.getElementById('runs_filter');
+document.querySelector("#form-index-btn").addEventListener("click", function(){
+  //console.log("òlkòkòkòkòkòkòklòòl")
+  form.submit()
+})
+
+</script> -->
+
+
+<div class="container-fluid">
+   <p id ="result-number" class="small light text-center"><%=@runs.length.size %> corse trovate</p>
+  <div class=" d-flex pb-5 flex-wrap">
+    <div class="d-flex pb-5 flex-column index-cards-container">
         <% @runs.each do |run| %>
         <%= link_to run do %>
           <%= render "horizontal_card", run: run %>
@@ -31,15 +46,31 @@
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= Rails.application.credentials[:MAPBOX_API] %>"
       ></div>
-
     </div>
   </div>
 
 
-  <button class="btn-secondary btn map-modal-btn"> MAP button</button>
+  <button class="btn-secondary btn map-modal-btn" data-toggle="modal" data-target="#indexMapModal "> <i class="fas fa-map-marked-alt"></i></button>
+<div class="modal fade" id="indexMapModal" tabindex="-1" role="dialog" aria-labelledby="indexMapModal Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <button type="button" class="close close-map-modal-btn" data-dismiss="modal" aria-label="Close">
+          Chiudi mappa
+        </button>
 
-  <script type="text/javascript">
-    document.querySelector("#run_location_filter").addEventListener("change", function(){
-      return console.log("hello")
-    })
+        <div class="modal-body p-0">
+          <div
+            id="modal-index-map"
+            style="width: 100%; height: calc(100vh - 50px)"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= Rails.application.credentials[:MAPBOX_API] %>"
+          ></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
   </script>

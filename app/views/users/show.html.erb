@@ -21,10 +21,9 @@
         <% end %>
       </div>
     </div>
-
-      <div class="col-md-8 px-0">
-        <%= render "runs/runs_card", user: @user, runs: @next_organized_runs, no_link: false %>
-        <%= render "runs/partecipant_card", user: @user, runs: @next_runs, no_link: false %>
-      </div>
+    <div class="col-md-8 px-2">
+      <%= render "runs/runs_card", user: @user, runs: @next_organized_runs, no_link: false %>
+      <%= render "runs/partecipant_card", user: @user, runs: @next_runs, no_link: false %>
+    </div>
   </div>
 </div>

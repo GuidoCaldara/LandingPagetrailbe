@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light ">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="#"><%= image_tag "img-navbar.png", width: 40 %></a>
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
@@ -13,3 +16,15 @@
     </div>
   </div>
 </nav>
+
+<div id="sidebar-container">
+  <div id="sidebar">
+    <% if user_signed_in? %>
+    <a class= "sidebar-link"> <%= image_tag current_user.avatar_pic, class:" micro-avatar",  height: 50, width: 50, crop: :fill  %> <%= current_user.username.capitalize if current_user.username  %> </a>
+    <hr style="background-color: #ffffff8f">
+    <%= link_to "Dashboard", user_path(current_user), class:"sidebar-link" %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"sidebar-link" %>
+    <% end %>
+  </div>
+
+</div>

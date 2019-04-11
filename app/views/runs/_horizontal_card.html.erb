@@ -1,16 +1,19 @@
 <div class="small-card card d-flex flex-row">
   <div class="d-flex flex-column w-75 px-3 py-2" >
+    <div class="">
+      <p class="mb-1"> <%= run.name %> </p>
+      <p class="small mb-1"> <%= run.date.strftime(" %e %B - %l:%M %p") %> </p>
+    </div>
     <div class="d-flex flex-wrap ">
-      <p class="mb-2"><%= run.date.strftime(" %e %B - %l:%M %p") %> / <%= run.name %></p>
       <% if action_name == "runs_finder" %>
-        <p class="card-organizer-name">Organizzato da <%= run.user.username.capitalize%> <%= image_tag run.user.avatar_pic, class:"micro-avatar",  height: 50, width: 50, crop: :fill  %> </p>
+        <p class="mb-3 card-organizer-name">Organizzato da <%= run.user.username.capitalize%> <%= image_tag run.user.avatar_pic, class:"micro-avatar",  height: 50, width: 50, crop: :fill  %> </p>
       <% end %>
     </div>
     <div class="d-flex flex-wrap">
       <p class="mr-2 mb-1 small"><%= run.run_distance %>Km / <%= run.elevation %>m d+ |</p>
       <p class="mr-2 mb-1 small"><%= run.starting_point.truncate(30) %></p>
     </div>
-    <div class="d-flex justify-content-between">
+    <div class="">
       <p class="mb-0 small"> <%= run.partecipants.size %> partecipant<%= run.partecipants.size > 1 ? "i" : "e"  %></p>
       <% if policy(run).edit? %>
       <div>

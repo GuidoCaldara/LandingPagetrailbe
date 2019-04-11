@@ -1,7 +1,11 @@
 <div class="message_card card">
   <p class="mb-1"><%= message.text %></p>
   <div class="d-flex justify-content-start">
-    <p class="mb-0 mr-4 small light">Scritto da <%= message.user.username.capitalize %> il <%= message.created_at.strftime(" %e %B - %l:%M %p") %>
+    <p class="mb-0 mr-4 small light">Scritto da
+      <%= link_to message.user do %>
+      <%= message.user.username.capitalize %> <%= image_tag message.user.avatar_pic, class:"micro-avatar small-micro-avatar",  height: 50, width: 50, crop: :fill  %>
+      <% end %>
+      il <%= message.created_at.strftime(" %e %B - %l:%M %p") %>
      <% if message.modified? %>
        / Modificato il <%= message.updated_at.strftime(" %e %B - %l:%M %p") %>
      <% end %>
@@ -10,7 +14,7 @@
     <%= link_to edit_message_path(message) do %>
       <p class="mb-0 small"><i class="far fa-edit mr-2"></i>Modifica</p>
     <% end %>
-    <%= link_to message_path(message), class:"small ", method: :delete, :data => {:confirm => 'Sei sicuro di voler eliminare il messaggio?'} do %>
+    <%= link_to run_message_path(message), class:"small ", method: :delete, :data => {:confirm => 'Sei sicuro di voler eliminare il messaggio?'} do %>
       <p class="mb-0 small"><i class="ml-3 fas fa-trash mr-2"></i>Elimina</p>
     <% end %>
     <% end %>

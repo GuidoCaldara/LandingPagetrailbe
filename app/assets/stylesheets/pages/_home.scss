@@ -1,0 +1,20 @@
+.home-container{
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), asset_url("background.jpg");
+  height: 100vh;
+  background-position: center;
+  background-clip: cover;
+  color: #dadada !important;
+}
+
+.home-btn-container{
+  p{
+    color: #dadada !important;
+  }
+  a{
+    color: #2b2b2b !important;
+  }
+}
+
+.home-action-btn{
+  width: 200px
+}

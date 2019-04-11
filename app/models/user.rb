@@ -43,8 +43,7 @@ class User < ApplicationRecord
   end
 
   def avatar_pic
-    self.avatar.url(:avatar) ||self.facebook_picture_url ||  "https://picsum.photos/200/300
-"
+    self.avatar.url(:avatar) ||self.facebook_picture_url || "https://res.cloudinary.com/run-db/image/upload/v1554971146/user.png"
   end
 
 end

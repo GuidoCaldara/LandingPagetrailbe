@@ -1,0 +1,33 @@
+.btn,
+.form-control {
+  border-radius: 0px
+}
+
+
+.btn{
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.btn-secondary:hover{
+  color: #323232
+}
+
+.btn-circle{
+  font-size: 30px;
+  color: #323232;
+  background-color: #68CE5D;
+  border-radius: 50%;
+  padding: 2px 17px;}
+
+.add-run-btn{
+  font-size:24px;
+  color:#68CE5D;
+}
+.add-run-btn:hover{
+  cursor: pointer;
+}
+
+.fb-login-btn{
+  width: 200px
+}
