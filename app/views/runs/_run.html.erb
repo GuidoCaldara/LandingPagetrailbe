@@ -19,9 +19,5 @@
       <% end %>
     </div>
   </div>
-  <% if run.photo.blank? %>
-    <div class="w-25 small-card-pic" style="min-height: 20px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path "no_pic_background.jpg" %>')"></div>
-  <% else %>
-    <div class="w-25 small-card-pic" style="min-height: 20px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path run.photo, height: 300, width: 400, crop: :fill %>')"></div>
-  <% end %>
+    <div class="w-25 small-card-pic" style="min-height: 20px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= run.run_pic %>')"></div>
 </div>

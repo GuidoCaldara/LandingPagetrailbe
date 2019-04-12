@@ -5,6 +5,9 @@ $black-text: #222222;
 @import "bootstrap/scss/bootstrap";
 @import "components/index";
 @import "pages/index";
+@import "font-awesome";
+@import "social-share-button";
+
 
 a:hover{
   cursor: pointer !important
@@ -59,4 +62,8 @@ a:hover{
 
 body{
   padding-bottom: 100px
+}
+
+.homepage-body{
+  padding-bottom: 0px !important
 }

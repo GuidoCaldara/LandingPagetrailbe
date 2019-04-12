@@ -73,11 +73,17 @@ class RunsController < ApplicationController
 
   def show
     @run = Run.find(params[:id])
+    @link = linkpreview
     @message = Message.new
   end
 
 
   private
+
+  def linkpreview
+    "https://www.trailbe.com/runs/#{params[:url]}"
+  end
+
 
   def run_params
     params.require(:run).permit(:name, :starting_point, :starting_point_info, :run_distance, :elevation, :duration, :date, :description, :photo )

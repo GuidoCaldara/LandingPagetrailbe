@@ -50,4 +50,10 @@ class Run < ApplicationRecord
     end
 
   end
+
+
+  def run_pic
+    self.photo.url(:small) || "https://res.cloudinary.com/run-db/image/upload/v1554278460/nngfmvfdnhuwlncfg4gx.jpg"
+  end
+
 end

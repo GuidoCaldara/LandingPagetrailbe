@@ -17,6 +17,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker', '~> 3.5.5'
 gem 'omniauth-facebook'
 gem "serviceworker-rails"
+gem "font-awesome-rails"
+gem 'meta-tags'
+gem 'social-share-button'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
