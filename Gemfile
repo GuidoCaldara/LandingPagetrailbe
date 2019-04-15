@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker', '~> 3.5.5'
 gem 'omniauth-facebook'
 gem "serviceworker-rails"
-gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 5.8.1'
 gem 'meta-tags'
 gem 'social-share-button'
 

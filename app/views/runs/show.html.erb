@@ -17,7 +17,6 @@
           <% if policy(Partecipant.new(run:@run, user:current_user)).create? %>
             <%= link_to "Partecipa", "/runs/#{@run.id}/partecipants", class: "ml-3 btn btn-secondary", method: :post %>
           <% end %>
-          <%= social_share_button_tag('Share to Facebook', :url => run_path(@run), desc: @run.name) %>
         </div>
         <p class="mt-3">Organizzato da
           <%= link_to @run.user do %>
