@@ -9,7 +9,7 @@ Devise.setup do |config|
     image_size: 'square',  # 50x50, guaranteed ratio
     secure_image_url: true
 
-  config.mailer_sender = 'help@trailbe.com'
+  config.mailer_sender = 'noreply@trailbe.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
