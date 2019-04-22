@@ -1,6 +1,7 @@
 .map-modal-btn{
     display: block;
-    position: absolute;
+    position: fixed;
+    z-index: 999999;
     right: 0px;
     font-size: 15px !important;
     padding: 13px 15px;

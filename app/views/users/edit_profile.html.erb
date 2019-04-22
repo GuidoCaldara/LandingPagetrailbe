@@ -6,7 +6,7 @@
         <%= simple_form_for @user, :url => update_user_profile_path, :method => :patch do |f| %>
         <%= f.input :username, label:"Scegli uno username",  input_html: {value: @user.username || @user.first_name}%>
         <%= f.input :location, label: "Di dove sei?" %>
-        <%= f.input :description, label: "Qualcosa su di te", as: :text %>
+        <%= f.input :description, label: "Racconta qualcosa su di te", as: :text %>
         <%= f.input :avatar, label: "Inserisci un immgine profilo (Puoi inserirla più avanti)"%>
         <%= f.input :avatar_cache, as: :hidden %>
         <%= f.button :submit, "Conferma", class:"btn btn-secondary float-right" %>
