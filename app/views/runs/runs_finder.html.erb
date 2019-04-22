@@ -1,7 +1,7 @@
 <% set_meta_tags title: 'TrailBe - Trailrunning Together',
                  description: "TrailBe è l'app per connettere trail runners, condividere le proprie uscite e trovare nuovi compagni d'allenamento",
                  keywords: 'Trailrunning, Allenamento, Trail, Skyrunning' %>
-                 
+
 <% set_meta_tags og: {
  title: 'TrailBe - Trailrunning Together',
  type:  'website',
@@ -33,7 +33,7 @@
 
 
 <div class="container-fluid">
-   <p id ="result-number" class="small light text-center"><%=@runs.length.size %> corse trovate</p>
+   <p id ="result-number" class="small light text-center"><%=@runs.size %> corse trovate</p>
   <div class=" d-flex pb-5 flex-wrap">
     <div class="d-flex pb-5 flex-column index-cards-container">
         <% @runs.each do |run| %>
