@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :partecipants, only: [:create, :destroy]
     resources :messages, only: [:create, :destroy, :edit, :update]
   end
-  resources :messages, only: [:edit]
+  resources :messages, only: [:edit, :update, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

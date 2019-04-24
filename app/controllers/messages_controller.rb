@@ -19,11 +19,22 @@ class MessagesController < ApplicationController
 
   def edit
     @message = Message.find(params[:id])
+    authorize @message
+  end
+
+  def destroy
+    @message = Message.find(params[:id])
+    authorize @message
+    @message.destroy
+    redirect_to @message.run
+    flash[:notice] = "Il messaggio è stato eliminato"
+
   end
 
 
   def update
     @message = Message.find(params[:id])
+    authorize @message
     @message.update(message_params)
     @run = @message.run
     if @message.save

@@ -14,7 +14,7 @@
     <%= link_to edit_message_path(message) do %>
       <p class="mb-0 small"><i class="far fa-edit mr-2"></i>Modifica</p>
     <% end %>
-    <%= link_to run_message_path(message), class:"small ", method: :delete, :data => {:confirm => 'Sei sicuro di voler eliminare il messaggio?'} do %>
+    <%= link_to message_path(message), class:"small ", method: :delete, :data => {:confirm => 'Sei sicuro di voler eliminare il messaggio?'} do %>
       <p class="mb-0 small"><i class="ml-3 fas fa-trash mr-2"></i>Elimina</p>
     <% end %>
     <% end %>

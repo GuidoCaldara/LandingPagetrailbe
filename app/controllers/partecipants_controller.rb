@@ -17,5 +17,12 @@ class PartecipantsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
+    @run = Run.find(params[:run_id])
+    @partecipant = @run.partecipants.where(user: @user).first
+    @partecipant.destroy
+    redirect_to @user
+    flash[:notice] = "Ti sei cancellato dall'allenamento!"
+
   end
 end

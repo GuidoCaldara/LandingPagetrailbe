@@ -12,8 +12,8 @@ class MessagePolicy < ApplicationPolicy
     record.user == user && user.is_partecipant?(record.run)
   end
 
-    def delete?
-      edit?
+    def destroy?
+      record.user == user
     end
 
     def update?

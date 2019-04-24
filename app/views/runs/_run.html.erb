@@ -1,15 +1,25 @@
+<%= link_to run do %>
 <div class="small-card card d-flex flex-row">
   <div class="d-flex flex-column w-75 px-3 py-2" >
-    <div>
-      <p class="mb-2"><%= run.date.strftime(" %e %B - %l:%M %p") %> / <%= run.name %></p>
+    <div class="">
+      <p class="mb-1"> <%= run.name %> </p>
+      <p class="small mb-1"> <%= run.date.strftime(" %e %B - %l:%M %p") %> </p>
+    </div>
+    <div class="d-flex flex-wrap ">
+      <% if action_name == "runs_finder" %>
+        <p class="mb-3 card-organizer-name">Organizzato da <%= run.user.username.capitalize%> <%= image_tag run.user.avatar_pic, class:"micro-avatar",  height: 50, width: 50, crop: :fill  %> </p>
+      <% end %>
     </div>
     <div class="d-flex flex-wrap">
       <p class="mr-2 mb-1 small"><%= run.run_distance %>Km / <%= run.elevation %>m d+ |</p>
       <p class="mr-2 mb-1 small"><%= run.starting_point.truncate(30) %></p>
     </div>
-    <div class="d-flex justify-content-between">
+    <div class="">
       <p class="mb-0 small"> <%= run.partecipants.size %> partecipant<%= run.partecipants.size > 1 ? "i" : "e"  %></p>
-      <% if policy(run).edit? %>
+      <% if current_user && current_user.is_partecipant?(run) && action_name == "show" && User.find_by(username: params[:id]) == current_user %>
+        <%= link_to run_partecipant_path(run, current_user), method: :delete, :data => {:confirm => 'Sei sicuro di voler cancellare la tua pertecipazione?'},class:"mr-2 small" do %>  <i class="fas fa-trash"></i> Cancella partecipazione <% end %>
+      <% end %>
+      <% if policy(run).edit? && action_name != "runs_finder"%>
       <div>
         <%= link_to edit_run_path(run), class:"mr-2 small" do %><i class="fas fa-pen"></i> Modifica <% end %>
         <%= link_to run_path(run), class:"small ", method: :delete, :data => {:confirm => 'Sei sicuro di voler eliminare la sessione di alenamento?'} do %>
@@ -21,3 +31,5 @@
   </div>
     <div class="w-25 small-card-pic" style="min-height: 20px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= run.run_pic %>')"></div>
 </div>
+
+<% end %>
