@@ -15,7 +15,7 @@
 
 </head>
   <body class="<%= action_name == "home" ? "homepage-body" : "" %>">
-    <%= render "shared/navbar" if action_name != "home" && user_signed_in? %>
+    <%= render "shared/navbar" if action_name != "home" && user_signed_in? && current_user.username %>
     <% if notice %>
       <p class="notice"><%= notice %> 👍</p>
     <% end %>

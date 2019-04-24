@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-md-8  mx-auto">
       <div class="card">
+        <% if current_user.username %>
         <h2>Il tuo profilo</h2>
+        <% else %>
+        <h2>Completa il tuo profilo per continuare</h2>
+        <% end %>
         <%= simple_form_for @user, :url => update_user_profile_path, :method => :patch do |f| %>
         <%= f.input :username, label:"Scegli uno username",  input_html: {value: @user.username || @user.first_name}%>
         <%= f.input :location, label: "Di dove sei?" %>

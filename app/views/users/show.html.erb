@@ -2,11 +2,9 @@
   <div class="row">
     <div class="col-md-4 px-0">
       <div class="card">
-        <% if !@user.avatar.blank? %>
             <div class="small-avatar mx-auto" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-           url('<%= image_path @user.avatar, height: 300, width: 400, crop: :fill %>')">
+           url('<%= @user.avatar_pic %>')">
             </div>
-        <% end %>
         <h2 class="mt-4 text-center"><%= @user.username.capitalize %> </h2>
         <p class="mb-0 text-center">Località: <%= @user.location.split(",").first %> </p>
         <hr>

@@ -15,7 +15,7 @@
     </div>
     <div class="">
       <p class="mb-0 small"> <%= run.partecipants.size %> partecipant<%= run.partecipants.size > 1 ? "i" : "e"  %></p>
-      <% if policy(run).edit? %>
+      <% if policy(run).edit? && action_name != "runs_finder"%>
       <div>
         <%= link_to edit_run_path(run), class:"mr-2 small" do %><i class="fas fa-pen"></i> Modifica <% end %>
         <%= link_to run_path(run), class:"small ", method: :delete, :data => {:confirm => 'Sei sicuro di voler eliminare la sessione di alenamento?'} do %>
