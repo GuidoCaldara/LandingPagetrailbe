@@ -12,7 +12,7 @@ class Run < ApplicationRecord
   validates :date, presence: true
   validate :run_in_the_future
   validates :starting_point, presence: true
-  validates :starting_point_info, length: { minimum: 4, maximum: 100 }
+  validates :starting_point_info, length: { maximum: 200 }
   validates :run_distance,  numericality: { only_integer: true, min: 1, max: 100}
   validates :elevation,  numericality: { only_integer: true, min: 0, max: 10000}
   validates :duration, presence: true
