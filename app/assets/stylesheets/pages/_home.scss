@@ -1,20 +1,46 @@
-.home-container{
+.home-container {
   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), asset_url("background.jpg");
-  height: 100vh;
+  height: 80vh;
   background-position: center;
   background-clip: cover;
   color: #dadada !important;
 }
 
-.home-btn-container{
-  p{
+.home-btn-container {
+  p {
     color: #dadada !important;
   }
-  a{
+
+  a {
     color: #2b2b2b !important;
   }
 }
 
-.home-action-btn{
-  width: 200px
+.home-action-btn {
+  width: 200px;
+}
+
+.home-info-line {
+  color: $black;
+}
+
+.share {
+  background-image: asset_url("share.jpg");
+}
+
+.run {
+  background-image: asset_url("run.jpg");
+}
+
+.discover {
+  background-image: asset_url("discover.jpg");
+}
+
+.home-img {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  background-size: cover;
+  border-radius: 50%;
+  background-position: center;
 }
